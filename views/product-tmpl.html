@@ -1,21 +1,24 @@
-        <!--Product Image-->
-        <!--Product Image click collapse the image-->
-        <a class="product-grid__product" >
-            <img class="product-grid__img"   sizes="(min-width: 960px) 33vw, (min-width: 769px) 50vw, 100vw" alt="">
-        </a>
-        <a class="product-grid__product">
-            show image
-        </a>
+<!--Product Image-->
 
-        <!--Product Meta-->
-        <div class="product-grid__meta">
-            <!--Title click Should redirect to the product-details section. remember to pass along the product id so you can make an api call
-        to get the specific product details-->
-            <h3 class="product-grid__name"><a><!--Title--></a></h3>
-            
-            <!--Product Description-->
-            <h4 class="product-grid__sub"><!--Desc--></h4>
+<!--Product Image click collapse the image-->
 
-            <!--Product Price-->
-            <div class="product-grid__price"><!--Price--></div>
-        </div>
+<a class="product-grid__product" ng-click='toggleMe()'>
+    <img ng-show='show' ng-src='{{info.image}}' class="product-grid__img" sizes="(min-width: 960px) 33vw, (min-width: 769px) 50vw, 100vw" alt="">
+
+</a>
+<a class="product-grid__product" ng-click='toggleMe()' ng-hide='show'>
+        Show image
+    </a>
+
+<!--Product Meta-->
+<div class="product-grid__meta">
+    <!--Title click Should redirect to the product-details section. remember to pass along the product id so you can make an api call
+    to get the specific product details-->
+    <h3 class="product-grid__name"><a ui-sref='details({id: info.id})'>{{info.title}}</a></h3>
+
+    <!--Product Description-->
+    <h4 class="product-grid__sub">{{info.desc}}</h4>
+
+    <!--Product Price-->
+    <div class="product-grid__price">${{info.price}}></div>
+</div>
